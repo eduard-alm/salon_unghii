@@ -48,6 +48,11 @@ function valid_nume(string $nume): bool
     return (bool) preg_match('/^[\p{L}\s\-]+$/u', $nume);
 }
 
+function normalizeaza_telefon(string $telefon): string
+{
+    return preg_replace('/[\s\-]+/', '', $telefon);
+}
+
 function valid_telefon(string $telefon): bool
 {
     return (bool) preg_match('/^0[0-9]{9}$/', $telefon);

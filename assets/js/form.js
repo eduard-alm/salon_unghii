@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var NUME_RE = /^[\p{L}\s-]+$/u;
   var TELEFON_RE = /^0[0-9]{9}$/;
 
+  function normalizeazaTelefon(v) {
+    return v.replace(/[\s-]+/g, '');
+  }
+
   var nume = form.querySelector('#nume');
   var telefon = form.querySelector('#telefon');
   var serviciu = form.querySelector('#serviciu');
@@ -38,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function validateTelefon() {
-    if (!TELEFON_RE.test(telefon.value.trim())) {
+    if (!TELEFON_RE.test(normalizeazaTelefon(telefon.value.trim()))) {
       setError(telefon, 'Introdu un număr valid, format 07xxxxxxxx.');
       return false;
     }

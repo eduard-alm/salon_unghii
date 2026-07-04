@@ -19,7 +19,7 @@ if (!empty($_POST['website'] ?? '')) {
 }
 
 $nume = trim($_POST['nume'] ?? '');
-$telefon = trim($_POST['telefon'] ?? '');
+$telefon = normalizeaza_telefon(trim($_POST['telefon'] ?? ''));
 $serviciu = trim($_POST['serviciu'] ?? '');
 $data = trim($_POST['data'] ?? '');
 $ora = trim($_POST['ora'] ?? '');
