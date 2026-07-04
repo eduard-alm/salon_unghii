@@ -1,0 +1,18 @@
+<?php
+// Fallback DEV LOCAL — copiază la config/config.local.php (gitignored, NU se comite).
+// Folosit DOAR dacă DB_HOST lipsește din mediu (vezi config.php) — pe producție
+// acest fișier nu există și getenv() rămâne singura sursă (R22).
+// Completează cu valorile instanței MySQL locale (vezi prompts/_ENV.md §4/§9).
+
+putenv('DB_HOST=127.0.0.1');
+putenv('DB_PORT=3307'); // instanță mysqld proprie a userului OS, NU serviciul de sistem (port 3306)
+putenv('DB_NAME=lumea_unghiilor');
+putenv('DB_USER=lumea_app');
+putenv('DB_PASS=schimba-ma-local');
+
+putenv('SMTP_HOST=127.0.0.1'); // mock local — conexiunea eșuează, DB rămâne salvat (FIX-01)
+putenv('SMTP_PORT=1025');
+putenv('SMTP_USER=test@local.test');
+putenv('SMTP_PASS=test');
+
+putenv('SALON_EMAIL=test-salon@local.test');

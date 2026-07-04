@@ -12,7 +12,7 @@ function db(): PDO
     $config = require __DIR__ . '/../config/config.php';
     $db = $config['db'];
 
-    $dsn = 'mysql:host=' . $db['host'] . ';dbname=' . $db['name'] . ';charset=utf8mb4';
+    $dsn = 'mysql:host=' . $db['host'] . ';port=' . $db['port'] . ';dbname=' . $db['name'] . ';charset=utf8mb4';
 
     try {
         $pdo = new PDO($dsn, $db['user'], $db['pass'], [
