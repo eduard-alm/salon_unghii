@@ -44,11 +44,13 @@ $prevMesaj = $prev['mesaj'] ?? '';
 
         <label for="nume">Nume</label>
         <input id="nume" name="nume" type="text" placeholder="Numele tău" value="<?= e($prevNume) ?>" required>
+        <span class="field-error" id="err-nume" aria-live="polite"></span>
 
         <div class="row">
           <div>
             <label for="telefon">Telefon</label>
             <input id="telefon" name="telefon" type="tel" placeholder="07xx xxx xxx" value="<?= e($prevTelefon) ?>" required>
+            <span class="field-error" id="err-telefon" aria-live="polite"></span>
           </div>
           <div>
             <label for="serviciu">Serviciu</label>
@@ -58,6 +60,7 @@ $prevMesaj = $prev['mesaj'] ?? '';
                 <option<?= $prevServiciu === $optServiciu ? ' selected' : '' ?>><?= e($optServiciu) ?></option>
               <?php endforeach; ?>
             </select>
+            <span class="field-error" id="err-serviciu" aria-live="polite"></span>
           </div>
         </div>
 
@@ -65,10 +68,12 @@ $prevMesaj = $prev['mesaj'] ?? '';
           <div>
             <label for="data">Data preferată</label>
             <input id="data" name="data" type="date" value="<?= e($prevData) ?>" required>
+            <span class="field-error" id="err-data" aria-live="polite"></span>
           </div>
           <div>
             <label for="ora">Ora preferată</label>
             <input id="ora" name="ora" type="time" value="<?= e($prevOra) ?>" required>
+            <span class="field-error" id="err-ora" aria-live="polite"></span>
           </div>
         </div>
 
@@ -79,6 +84,7 @@ $prevMesaj = $prev['mesaj'] ?? '';
           <input type="checkbox" id="gdpr" name="gdpr" required>
           <label for="gdpr" style="margin:0">Sunt de acord ca datele mele să fie folosite pentru a-mi confirma programarea. Vezi <a href="/politica-confidentialitate">Politica de confidențialitate</a>.</label>
         </div>
+        <span class="field-error" id="err-gdpr" aria-live="polite"></span>
 
         <button type="submit" class="btn">Trimite programarea</button>
       </form>

@@ -38,5 +38,11 @@
 </div>
 
 <script src="/assets/js/main.js"></script>
+<?php if (($activ ?? '') === 'galerie'): ?>
+<script src="/assets/js/gallery.js"></script>
+<?php endif; ?>
+<?php if (($activ ?? '') === 'contact'): ?>
+<script src="/assets/js/form.js"></script>
+<?php endif; ?>
 </body>
 </html>

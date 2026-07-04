@@ -30,7 +30,7 @@ $altTexts = [
     </div>
     <div class="gal">
       <?php for ($i = 0; $i < 12; $i++): ?>
-        <img src="/assets/images/placeholder-galerie.svg" alt="<?= e($altTexts[$i % count($altTexts)]) ?>" loading="lazy">
+        <img src="/assets/images/placeholder-galerie.svg" alt="<?= e($altTexts[$i % count($altTexts)]) ?>" loading="lazy" data-lightbox>
       <?php endfor; ?>
     </div>
   </div>

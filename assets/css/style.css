@@ -86,8 +86,13 @@ header.site-header {
   position: sticky;
   top: 0;
   background: var(--bg);
-  z-index: 10;
+  z-index: 30;
   box-shadow: 0 1px 0 var(--roz);
+  transition: box-shadow 0.2s ease;
+}
+
+header.site-header.is-scrolled {
+  box-shadow: 0 4px 16px rgba(46, 34, 38, 0.12);
 }
 
 nav.navbar {
@@ -122,6 +127,7 @@ nav.navbar {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 22px;
 }
 
 @media (min-width: 768px) {
@@ -129,7 +135,32 @@ nav.navbar {
   .nav-toggle { display: none; }
 }
 
-.nav-links.is-open { display: flex; }
+@media (max-width: 767px) {
+  .nav-links {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+    z-index: 20;
+  }
+
+  .nav-links.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.25s ease, visibility 0s linear 0s;
+  }
+
+  .nav-links a { font-size: 20px; padding: 10px 0; }
+  .nav-links a.btn { margin-top: var(--spacing-sm); }
+}
 
 /* Footer */
 footer.site-footer {
@@ -216,6 +247,54 @@ section { padding: var(--spacing-3xl) 0; }
 /* Galerie (preview + pagină completă) */
 .gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md); }
 .gal img { border-radius: 12px; aspect-ratio: 1; object-fit: cover; width: 100%; }
+.gal img[data-lightbox] { cursor: zoom-in; }
+
+/* Lightbox galerie (gallery.js) */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(94, 31, 42, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: var(--spacing-lg);
+}
+.lightbox-overlay[hidden] { display: none; }
+.lightbox-img {
+  max-width: min(90vw, 900px);
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover { background: rgba(255, 255, 255, 0.3); }
+.lightbox-close { top: var(--spacing-lg); right: var(--spacing-lg); }
+.lightbox-prev { left: var(--spacing-lg); top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: var(--spacing-lg); top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 600px) {
+  .lightbox-close { top: var(--spacing-md); right: var(--spacing-md); }
+  .lightbox-prev { left: var(--spacing-md); }
+  .lightbox-next { right: var(--spacing-md); }
+}
 
 /* Pași programare */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
@@ -269,7 +348,7 @@ section { padding: var(--spacing-3xl) 0; }
 
 /* Contact & formular programare */
 .cgrid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--spacing-xl); align-items: start; }
-.form-programare { background: #fff; border-radius: 16px; padding: var(--spacing-lg); box-shadow: 0 4px 20px rgba(123, 45, 58, 0.08); }
+.form-programare { position: relative; background: #fff; border-radius: 16px; padding: var(--spacing-lg); box-shadow: 0 4px 20px rgba(123, 45, 58, 0.08); }
 .form-programare label { display: block; font-size: 14px; color: var(--text-soft); margin: var(--spacing-md) 0 6px; }
 .form-programare input,
 .form-programare select,
@@ -289,9 +368,21 @@ section { padding: var(--spacing-3xl) 0; }
   border-color: var(--bordo);
   box-shadow: 0 0 0 3px rgba(123, 45, 58, 0.12);
 }
+.form-programare input.is-invalid,
+.form-programare select.is-invalid {
+  border-color: var(--eroare);
+}
+.field-error {
+  display: block;
+  min-height: 16px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--eroare);
+}
 .form-programare .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
 .form-programare .gdpr { display: flex; gap: 10px; align-items: flex-start; margin-top: var(--spacing-md); font-size: 14px; color: var(--text-soft); }
 .form-programare .gdpr input { width: auto; margin-top: 4px; }
+.form-programare .gdpr ~ .field-error { margin-top: 6px; }
 .form-programare .btn { margin-top: var(--spacing-md); width: 100%; }
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .info .card { margin-bottom: var(--spacing-md); }
