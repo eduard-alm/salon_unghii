@@ -1,7 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Manichiură elegantă — Lumea Unghiilor">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Manichiura eleganta - Lumea Unghiilor">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#F3DBDB"/>
       <stop offset="1" stop-color="#FBF3F2"/>
     </linearGradient>
-    <linearGradient id="nail" x1="0" y
+    <linearGradient id="nail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ECC9CB"/>
+      <stop offset="1" stop-color="#7B2D3A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="120" cy="110" r="95" fill="#E3B9BC" opacity="0.35"/>
+  <circle cx="700" cy="480" r="140" fill="#E3B9BC" opacity="0.3"/>
+  <circle cx="640" cy="120" r="46" fill="#C9A96A" opacity="0.18"/>
+  <circle cx="400" cy="300" r="270" fill="url(#glow)"/>
+  <g transform="translate(400,372)">
+    <g transform="translate(-108,26) rotate(-15)">
+      <path d="M0,4 C-24,4 -30,-30 -27,-75 C-24,-120 -12,-150 0,-150 C12,-150 24,-120 27,-75 C30,-30 24,4 0,4 Z" fill="url(#nail)"/>
+      <path d="M-22,-128 C-11,-150 11,-150 22,-128 C11,-139 -11,-139 -22,-128 Z" fill="#FBF3F2" opacity="0.9"/>
+      <ellipse cx="-9" cy="-82" rx="4" ry="34" fill="#ffffff" opacity="0.22"/>
+      <path d="M-19,-2 C-7,8 7,8 19,-2" stroke="#C9A96A" stroke-width="2.5" fill="none" opacity="0.8"/>
+    </g>
+    <g transform="translate(-38,2) rotate(-5)">
+      <path d="M0,4 C-24,4 -30,-30 -27,-75 C-24,-120 -12,-150 0,-150 C12,-150 24,-120 27,-75 C30,-30 24,4 0,4 Z" fill="url(#nail)"/>
+      <path d="M-22,-128 C-11,-150 11,-150 22,-128 C11,-139 -11,-139 -22,-128 Z" fill="#FBF3F2" opacity="0.9"/>
+      <ellipse cx="-9" cy="-82" rx="4" ry="34" fill="#ffffff" opacity="0.22"/>
+      <path d="M-19,-2 C-7,8 7,8 19,-2" stroke="#C9A96A" stroke-width="2.5" fill="none" opacity="0.8"/>
+    </g>
+    <g transform="translate(38,2) rotate(5)">
+      <path d="M0,4 C-24,4 -30,-30 -27,-75 C-24,-120 -12,-150 0,-150 C12,-150 24,-120 27,-75 C30,-30 24,4 0,4 Z" fill="url(#nail)"/>
+      <path d="M-22,-128 C-11,-150 11,-150 22,-128 C11,-139 -11,-139 -22,-128 Z" fill="#FBF3F2" opacity="0.9"/>
+      <ellipse cx="-9" cy="-82" rx="4" ry="34" fill="#ffffff" opacity="0.22"/>
+      <path d="M-19,-2 C-7,8 7,8 19,-2" stroke="#C9A96A" stroke-width="2.5" fill="none" opacity="0.8"/>
+    </g>
+    <g transform="translate(108,26) rotate(15)">
+      <path d="M0,4 C-24,4 -30,-30 -27,-75 C-24,-120 -12,-150 0,-150 C12,-150 24,-120 27,-75 C30,-30 24,4 0,4 Z" fill="url(#nail)"/>
+      <path d="M-22,-128 C-11,-150 11,-150 22,-128 C11,-139 -11,-139 -22,-128 Z" fill="#FBF3F2" opacity="0.9"/>
+      <ellipse cx="-9" cy="-82" rx="4" ry="34" fill="#ffffff" opacity="0.22"/>
+      <path d="M-19,-2 C-7,8 7,8 19,-2" stroke="#C9A96A" stroke-width="2.5" fill="none" opacity="0.8"/>
+    </g>
+  </g>
+  <g fill="#C9A96A">
+    <path d="M250,150 L258,172 L280,180 L258,188 L250,210 L242,188 L220,180 L242,172 Z" opacity="0.85"/>
+    <path d="M560,220 L566,236 L582,242 L566,248 L560,264 L554,248 L538,242 L554,236 Z" opacity="0.7"/>
+    <path d="M470,430 L474,441 L485,445 L474,449 L470,460 L466,449 L455,445 L466,441 Z" opacity="0.75"/>
+    <path d="M180,380 L184,391 L195,395 L184,399 L180,410 L176,399 L165,395 L176,391 Z" opacity="0.6"/>
+  </g>
+</svg>
