@@ -217,6 +217,7 @@ footer.site-footer a { color: #f0cdd2; display: block; font-size: 14px; margin-b
 }
 .cookie-banner p { margin: 0; font-size: 14px; }
 .cookie-banner .actions { display: flex; gap: var(--spacing-sm); }
+.cookie-banner[hidden] { display: none; }
 
 /* Pagini statice (P02) */
 section { padding: var(--spacing-3xl) 0; }
