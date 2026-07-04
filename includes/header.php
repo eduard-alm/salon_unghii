@@ -37,7 +37,7 @@ $navLinks = [
 <meta property="og:description" content="<?= e($description) ?>">
 <?php endif; ?>
 <?php if ($activ === 'acasa'): ?>
-<script type="application/ld+json"><?= json_encode([
+<script type="application/ld+json" nonce="<?= e(csp_nonce()) ?>"><?= json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'NailSalon',
     'name' => 'Lumea Unghiilor',
