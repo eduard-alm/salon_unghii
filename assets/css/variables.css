@@ -1,0 +1,23 @@
+:root {
+  --roz: #F0D5D5;
+  --roz-dark: #E3B9BC;
+  --bordo: #7B2D3A;
+  --bordo-dark: #5E1F2A;
+  --bg: #FFFCFB;
+  --bg-alt: #FAF3F2;
+  --text: #2E2226;
+  --text-soft: #6E6167;
+  --auriu: #C9A96A;
+  --succes: #4E8360;
+  --eroare: #C0392B;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+
+  --container-max: 1160px;
+}

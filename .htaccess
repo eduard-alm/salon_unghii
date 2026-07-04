@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# HTTP -> HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# URL curat: /servicii -> servicii.php (dacă fișierul .php există și nu e cerere directă de fișier/folder existent)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+ErrorDocument 404 /404.php
+
+# Blochează accesul web direct la foldere interne
+RewriteRule ^(includes|config|vendor)/ - [F,L]
