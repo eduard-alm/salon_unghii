@@ -266,3 +266,42 @@ section { padding: var(--spacing-3xl) 0; }
   .hero-img { height: 220px; }
   .grid-3, .steps, .tgrid, .values, .team { grid-template-columns: 1fr; }
 }
+
+/* Contact & formular programare */
+.cgrid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--spacing-xl); align-items: start; }
+.form-programare { background: #fff; border-radius: 16px; padding: var(--spacing-lg); box-shadow: 0 4px 20px rgba(123, 45, 58, 0.08); }
+.form-programare label { display: block; font-size: 14px; color: var(--text-soft); margin: var(--spacing-md) 0 6px; }
+.form-programare input,
+.form-programare select,
+.form-programare textarea {
+  width: 100%;
+  border: 1.5px solid var(--roz-dark);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  background: #fff;
+}
+.form-programare input:focus,
+.form-programare select:focus,
+.form-programare textarea:focus {
+  outline: none;
+  border-color: var(--bordo);
+  box-shadow: 0 0 0 3px rgba(123, 45, 58, 0.12);
+}
+.form-programare .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+.form-programare .gdpr { display: flex; gap: 10px; align-items: flex-start; margin-top: var(--spacing-md); font-size: 14px; color: var(--text-soft); }
+.form-programare .gdpr input { width: auto; margin-top: 4px; }
+.form-programare .btn { margin-top: var(--spacing-md); width: 100%; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.info .card { margin-bottom: var(--spacing-md); }
+.info b { color: var(--bordo); }
+.map { background: var(--roz-dark); border-radius: 16px; height: 180px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; }
+.form-msg { border-radius: 10px; padding: var(--spacing-sm) var(--spacing-md); margin-bottom: var(--spacing-md); font-size: 15px; }
+.form-msg-succes { background: #e4f4e8; color: #1e6b3a; }
+.form-msg-eroare { background: #fbe6e6; color: #a33a3a; }
+
+@media (max-width: 768px) {
+  .cgrid { grid-template-columns: 1fr; }
+  .form-programare .row { grid-template-columns: 1fr; }
+}

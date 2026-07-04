@@ -19,6 +19,7 @@ $routes = [
     '/galerie'  => 'galerie.php',
     '/despre'   => 'despre.php',
     '/contact'  => 'contact.php',
+    '/trimite-programare' => 'trimite-programare.php',
 ];
 
 $slug = rtrim($uri, '/');
