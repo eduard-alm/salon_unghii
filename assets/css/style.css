@@ -186,3 +186,83 @@ footer.site-footer a { color: #f0cdd2; display: block; font-size: 14px; margin-b
 }
 .cookie-banner p { margin: 0; font-size: 14px; }
 .cookie-banner .actions { display: flex; gap: var(--spacing-sm); }
+
+/* Pagini statice (P02) */
+section { padding: var(--spacing-3xl) 0; }
+.center { text-align: center; }
+.alt { background: var(--bg-alt); }
+
+.sec-title { font-size: 36px; margin-bottom: var(--spacing-sm); }
+.sec-sub { color: var(--text-soft); margin-bottom: var(--spacing-2xl); text-align: center; }
+
+/* Hero homepage */
+.hero { background: linear-gradient(135deg, var(--roz) 0%, var(--bg-alt) 100%); padding: var(--spacing-3xl) 0; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--spacing-xl); align-items: center; }
+.hero p { font-size: 19px; color: var(--text-soft); margin-bottom: var(--spacing-lg); max-width: 34ch; }
+.hero-cta { display: flex; gap: var(--spacing-md); flex-wrap: wrap; }
+.hero-note { margin-top: var(--spacing-md); font-size: 14px; color: var(--text-soft); }
+.hero-img { border-radius: 20px; height: 340px; object-fit: cover; width: 100%; }
+
+/* Hero pagini interioare (servicii, galerie, despre) */
+.page-hero { background: linear-gradient(135deg, var(--roz) 0%, var(--bg-alt) 100%); padding: var(--spacing-2xl) 0; text-align: center; }
+.page-hero h1 { font-size: 44px; margin-bottom: var(--spacing-sm); }
+.page-hero p { color: var(--text-soft); font-size: 18px; max-width: 60ch; margin: 0 auto; }
+
+/* Grid carduri */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
+.icon { width: 44px; height: 44px; border-radius: 50%; background: var(--roz); margin-bottom: var(--spacing-md); }
+
+/* Galerie (preview + pagină completă) */
+.gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md); }
+.gal img { border-radius: 12px; aspect-ratio: 1; object-fit: cover; width: 100%; }
+
+/* Pași programare */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
+.step .num { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--auriu); font-weight: 700; }
+
+/* Testimoniale */
+.tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
+.quote { background: #fff; border-radius: 16px; padding: var(--spacing-lg); box-shadow: 0 4px 20px rgba(123, 45, 58, 0.06); font-style: italic; color: var(--text); }
+.quote .who { display: block; margin-top: var(--spacing-md); font-style: normal; font-weight: 600; color: var(--bordo); }
+.stats { display: flex; gap: var(--spacing-xl); justify-content: center; margin-top: var(--spacing-lg); flex-wrap: wrap; }
+.stats b { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--bordo); display: block; }
+
+/* Bandă CTA */
+.ctaband { background: var(--bordo); color: #fff; text-align: center; }
+.ctaband h2 { color: #fff; font-size: 34px; margin-bottom: var(--spacing-sm); }
+.ctaband p { margin-bottom: var(--spacing-lg); opacity: 0.9; }
+.ctaband .btn { background: #fff; color: var(--bordo); }
+
+/* Servicii & prețuri */
+.maxw { max-width: 760px; margin: 0 auto; }
+.price-block { margin-bottom: var(--spacing-xl); }
+.price-block h2 { font-size: 26px; color: var(--bordo); margin-bottom: var(--spacing-md); border-bottom: 2px solid var(--roz); padding-bottom: var(--spacing-sm); }
+.price-row { display: flex; justify-content: space-between; align-items: baseline; padding: var(--spacing-sm) 0; border-bottom: 1px dashed var(--roz-dark); }
+.price-row .name { font-weight: 500; }
+.price-row .dur { color: var(--text-soft); font-size: 14px; margin-left: var(--spacing-sm); }
+.price-row .price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--bordo); white-space: nowrap; }
+
+/* Galerie — filtre (vizuale, fără JS încă) */
+.filters { display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-xl); }
+.chip { border: 1.5px solid var(--roz-dark); color: var(--text-soft); background: #fff; padding: var(--spacing-sm) var(--spacing-md); border-radius: 999px; font-size: 14px; cursor: pointer; }
+.chip.active { background: var(--bordo); color: #fff; border-color: var(--bordo); }
+
+/* Despre noi */
+.story { max-width: 720px; margin: 0 auto; }
+.story p { margin-bottom: var(--spacing-md); font-size: 17px; }
+.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); margin-top: var(--spacing-md); }
+.team { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-lg); max-width: 760px; margin: var(--spacing-lg) auto 0; }
+.team .card { display: flex; gap: var(--spacing-md); align-items: center; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--roz-dark); flex: none; }
+
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .gal { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-img { height: 220px; }
+  .grid-3, .steps, .tgrid, .values, .team { grid-template-columns: 1fr; }
+}
