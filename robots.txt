@@ -2,3 +2,6 @@ User-agent: *
 Disallow: /includes/
 Disallow: /config/
 Disallow: /vendor/
+
+# TODO: înlocuiește ⟨domeniul-tau.ro⟩ cu domeniul real de producție înainte de lansare (vezi _ENV.md §8)
+Sitemap: https://⟨domeniul-tau.ro⟩/sitemap.xml

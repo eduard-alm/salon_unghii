@@ -5,6 +5,11 @@ $activ = $activ ?? '';
 $title = $title ?? 'Lumea Unghiilor — Salon de unghii';
 $description = $description ?? '';
 
+$schemeHttp = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$hostHttp = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$pathHttp = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
+$canonical = $schemeHttp . '://' . $hostHttp . $pathHttp;
+
 $navLinks = [
     'acasa'    => ['href' => '/', 'label' => 'Acasă'],
     'servicii' => ['href' => '/servicii', 'label' => 'Servicii'],
@@ -21,6 +26,47 @@ $navLinks = [
 <title><?= e($title) ?></title>
 <?php if ($description !== ''): ?>
 <meta name="description" content="<?= e($description) ?>">
+<?php endif; ?>
+<link rel="canonical" href="<?= e($canonical) ?>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumea Unghiilor">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:url" content="<?= e($canonical) ?>">
+<meta property="og:title" content="<?= e($title) ?>">
+<?php if ($description !== ''): ?>
+<meta property="og:description" content="<?= e($description) ?>">
+<?php endif; ?>
+<?php if ($activ === 'acasa'): ?>
+<script type="application/ld+json"><?= json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'NailSalon',
+    'name' => 'Lumea Unghiilor',
+    'url' => $canonical,
+    'image' => $schemeHttp . '://' . $hostHttp . '/assets/images/hero-manichiura.svg',
+    'telephone' => '⟨07xx xxx xxx⟩',
+    'priceRange' => '$$',
+    'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => '⟨Str. Exemplu nr. 10⟩',
+        'addressLocality' => '⟨Cluj-Napoca⟩',
+        'addressCountry' => 'RO',
+    ],
+    'openingHoursSpecification' => [
+        [
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            'opens' => '09:00',
+            'closes' => '19:00',
+        ],
+        [
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => ['Saturday'],
+            'opens' => '09:00',
+            'closes' => '15:00',
+        ],
+    ],
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
+<!-- TODO: adresă și telefon reale înainte de lansare (vezi _ENV.md §8) -->
 <?php endif; ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

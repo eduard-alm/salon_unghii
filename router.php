@@ -20,6 +20,7 @@ $routes = [
     '/despre'   => 'despre.php',
     '/contact'  => 'contact.php',
     '/trimite-programare' => 'trimite-programare.php',
+    '/politica-confidentialitate' => 'politica-confidentialitate.php',
 ];
 
 $slug = rtrim($uri, '/');

@@ -37,6 +37,7 @@
   </div>
 </div>
 
+<script src="/assets/js/cookies.js"></script>
 <script src="/assets/js/main.js"></script>
 <?php if (($activ ?? '') === 'galerie'): ?>
 <script src="/assets/js/gallery.js"></script>
