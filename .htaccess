@@ -1,7 +1,10 @@
 RewriteEngine On
 
-# HTTP -> HTTPS
+# HTTP -> HTTPS (contează și X-Forwarded-Proto — necesar în spatele proxy-ului
+# Coolify, care termină TLS și trimite HTTP simplu către container; altfel
+# %{HTTPS} rămâne mereu "off" și apare buclă infinită de redirect)
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # URL curat: /servicii -> servicii.php (dacă fișierul .php există și nu e cerere directă de fișier/folder existent)

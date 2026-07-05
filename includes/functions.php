@@ -25,7 +25,13 @@ function trimite_headere_securitate(): void
     header('X-Frame-Options: SAMEORIGIN');
     header('Referrer-Policy: strict-origin-when-cross-origin');
     header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
-    // TODO: adaugă Strict-Transport-Security (HSTS) la deploy pe HTTPS real (P06) — nu pune local.
+
+    $https = ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https'
+        || ($_SERVER['HTTPS'] ?? '') === 'on';
+    if ($https) {
+        header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+    }
+
     header(
         "Content-Security-Policy: default-src 'self'; "
         . "script-src 'self' 'nonce-{$nonce}'; "
