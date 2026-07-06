@@ -15,7 +15,6 @@ $navLinks = [
     'servicii' => ['href' => '/servicii', 'label' => 'Servicii'],
     'galerie'  => ['href' => '/galerie', 'label' => 'Galerie'],
     'despre'   => ['href' => '/despre', 'label' => 'Despre'],
-    'contact'  => ['href' => '/contact', 'label' => 'Contact'],
 ];
 ?>
 <!DOCTYPE html>
