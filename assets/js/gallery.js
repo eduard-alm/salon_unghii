@@ -1,8 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var images = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
-  if (!images.length) {
+  var allImages = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
+  if (!allImages.length) {
     return;
   }
+
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-filter]'));
+
+  function visibleImages() {
+    return allImages.filter(function (img) {
+      return !img.classList.contains('is-hidden');
+    });
+  }
+
+  function applyFilter(filter) {
+    allImages.forEach(function (img) {
+      var match = filter === 'toate' || img.getAttribute('data-category') === filter;
+      img.classList.toggle('is-hidden', !match);
+    });
+  }
+
+  chips.forEach(function (chip) {
+    chip.setAttribute('aria-pressed', chip.classList.contains('active') ? 'true' : 'false');
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+      applyFilter(chip.getAttribute('data-filter'));
+    });
+  });
+
+  var images = visibleImages();
 
   var overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
@@ -48,7 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function open(index) {
+  function open(img) {
+    images = visibleImages();
+    var index = images.indexOf(img);
+    if (index === -1) {
+      index = 0;
+    }
     lastFocused = document.activeElement;
     show(index);
     overlay.hidden = false;
@@ -64,16 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  images.forEach(function (img, index) {
+  allImages.forEach(function (img) {
     img.setAttribute('tabindex', '0');
     img.setAttribute('role', 'button');
     img.addEventListener('click', function () {
-      open(index);
+      open(img);
     });
     img.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        open(index);
+        open(img);
       }
     });
   });

@@ -28,7 +28,7 @@ $prevMesaj = $prev['mesaj'] ?? '';
 
 <section>
   <div class="container cgrid">
-    <div>
+    <div id="programare">
       <?php if ($status === 'succes'): ?>
         <p class="form-msg form-msg-succes">Mulțumim! Am primit cererea ta. Te contactăm în scurt timp ca să confirmăm ora.</p>
       <?php elseif ($status === 'eroare'): ?>

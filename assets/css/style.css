@@ -249,6 +249,7 @@ section { padding: var(--spacing-3xl) 0; }
 .gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md); }
 .gal img { border-radius: 12px; aspect-ratio: 1; object-fit: cover; width: 100%; }
 .gal img[data-lightbox] { cursor: zoom-in; }
+.gal img.is-hidden { display: none; }
 
 /* Lightbox galerie (gallery.js) */
 .lightbox-overlay {

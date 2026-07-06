@@ -10,6 +10,8 @@ $altTexts = [
     'Nail art floral pe fundal roz pastel',
     'Pedichiură semipermanentă roșu clasic',
 ];
+
+$categorii = ['manichiura', 'constructie', 'nailart', 'pedichiura'];
 ?>
 
 <section class="page-hero">
@@ -22,15 +24,15 @@ $altTexts = [
 <section>
   <div class="container">
     <div class="filters">
-      <span class="chip active">Toate</span>
-      <span class="chip">Manichiură</span>
-      <span class="chip">Construcție</span>
-      <span class="chip">Pedichiură</span>
-      <span class="chip">Nail art</span>
+      <button type="button" class="chip active" data-filter="toate">Toate</button>
+      <button type="button" class="chip" data-filter="manichiura">Manichiură</button>
+      <button type="button" class="chip" data-filter="constructie">Construcție</button>
+      <button type="button" class="chip" data-filter="pedichiura">Pedichiură</button>
+      <button type="button" class="chip" data-filter="nailart">Nail art</button>
     </div>
     <div class="gal">
       <?php for ($i = 0; $i < 12; $i++): ?>
-        <img src="/assets/images/placeholder-galerie.svg" alt="<?= e($altTexts[$i % count($altTexts)]) ?>" loading="lazy" data-lightbox>
+        <img src="/assets/images/placeholder-galerie.svg" alt="<?= e($altTexts[$i % count($altTexts)]) ?>" loading="lazy" data-lightbox data-category="<?= e($categorii[$i % count($categorii)]) ?>">
       <?php endfor; ?>
     </div>
   </div>

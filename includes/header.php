@@ -73,6 +73,7 @@ $navLinks = [
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/variables.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <header class="site-header">
@@ -85,7 +86,7 @@ $navLinks = [
       <?php foreach ($navLinks as $slug => $link): ?>
         <a href="<?= e($link['href']) ?>"<?= $activ === $slug ? ' class="active"' : '' ?>><?= e($link['label']) ?></a>
       <?php endforeach; ?>
-      <a href="/contact" class="btn" style="padding:10px 22px">Programează-te</a>
+      <a href="/contact#programare" class="btn" style="padding:10px 22px">Programează-te</a>
     </div>
   </nav>
 </header>
