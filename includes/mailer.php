@@ -28,7 +28,7 @@ function trimite_email(string $catre, string $subiect, string $corp): bool
         $mail->Port = (int) $smtp['port'];
         $mail->CharSet = PHPMailer::CHARSET_UTF8;
 
-        $mail->setFrom($smtp['user'], 'Lumea Unghiilor');
+        $mail->setFrom($config['mail_from'], 'Lumea Unghiilor');
         $mail->addAddress($catre);
 
         $mail->Subject = $subiect;

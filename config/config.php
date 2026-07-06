@@ -40,4 +40,5 @@ return [
         'pass' => config_env('SMTP_PASS'),
     ],
     'salon_email' => config_env('SALON_EMAIL'),
+    'mail_from' => getenv('MAIL_FROM') ?: config_env('SALON_EMAIL'),
 ];
